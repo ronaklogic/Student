@@ -1,0 +1,24 @@
+<%= form_with model: @state, remote: true do |form| %>
+  <div class="field">
+    <%= form.label :state_name %>
+    <%= form.text_field :state_name %><br>
+  </div>
+
+  <div>
+    <%= form.label :district_id %>  
+    <%= form.select :district_id, District.all.collect { |p| [p.district_name, p.id] } %><br>
+  </div>
+
+<div>
+  <%= form.label :taluka_id %>
+  <%= form.select :taluka_id, Taluka.all.collect { |p| [p.name, p.id] } %><br>
+</div>
+
+  <div class="field">
+    <%= form.submit %>
+  </div>
+  
+<% end %>
+
+
+

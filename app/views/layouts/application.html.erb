@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+  <center>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Blog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <% if logged_in? %>
+
+      <li class="nav-item active">        
+        <%= link_to "state", states_path, class: "nav-link active"%>
+      </li>
+
+      <li class="nav-item active">        
+        <%= link_to "district", districts_path, class: "nav-link active"%>
+      </li>  
+
+      <li class="nav-item active">        
+        <%= link_to "taluka", talukas_path, class: "nav-link active"%>
+      </li>
+
+      <%= link_to "Sign Out", delete_session_path,method: "delete", class: "nav-link active" %>
+    <% else %>
+      <%= link_to "Sign In", session_new_path %> | 
+      <%= link_to "Sign Up", users_path %> <br>
+
+    <% end %>
+    </ul>
+  </div>
+</nav>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <%= yield %>
+  </center>
+  </body>
+</html>
+

@@ -1,0 +1,12 @@
+<tr id="state_<%= state.id %>">
+  <td><%= state.state_name %></td>
+  <td><%=  District.where(id: state.districts.ids).pluck(:district_name).join(",") %></td>
+  <td><%=  Taluka.where(id: state.talukas.ids).pluck(:name).join(",") %></td> 
+  <td>
+    <%= link_to "show", state_path(state.id), method: :get, class: "btn btn-outline-warning", remote: true %>
+    <%= link_to "edit", edit_state_path(state.id), method: :get, class: "btn btn-outline-primary", remote: true %>
+    <%= link_to "Delete", state_path(state.id), method: :delete, class: "btn btn-outline-danger", remote: true %>
+  </td>
+</tr>
+
+

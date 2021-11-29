@@ -1,0 +1,18 @@
+<h1>District</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <th scope="col">District</th>
+    <th scope="col">State</th> 
+    <th scope="col">Taluka</th> 
+    <th scope="col">Action</th>
+  </thead>
+  <tbody id="district">
+    <% @districts.each do |district| %>
+      <%= render partial: 'row', locals: { district: district } %>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "Create New Record ", new_district_path, remote: true, class: "btn btn-outline-success" %>
+<li><%= link_to "Next page", districts_path(page: @page + 1) %></li>
+<li><%= link_to "previous page", districts_path(page: @page - 1) %></li>
+<div id="district_form"></div>

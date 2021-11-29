@@ -1,0 +1,10 @@
+<tr id="taluka <%= taluka.id%>">
+  <td><%= taluka.name %></td>
+  <td><%= taluka.state.state_name %></td>
+  <td><%= taluka.district.district_name %></td>
+  <td>
+    <%= link_to "show", taluka_path(taluka.id), method: :get, class: "btn btn-outline-warning", remote: true %>
+    <%= link_to "edit", edit_taluka_path(taluka.id), method: :get, class: "btn btn-outline-primary", remote: true %>
+    <%= link_to "Delete", taluka_path(taluka.id), method: :delete, class: "btn btn-outline-danger", remote: true %>
+  </td>
+</tr>

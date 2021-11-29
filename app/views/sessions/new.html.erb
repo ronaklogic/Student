@@ -1,0 +1,21 @@
+
+
+<h1>Sign In</h1>
+
+<%= form_with model: @users do |form| %>
+  
+  <div class="field">
+    <%= form.label :email %><br />
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %><br />
+    <%= form.password_field :password_digest %>
+  </div>
+  
+  <div class="actions">
+  <%= form.submit "Log In" %>
+  </div>
+<% end %>
+

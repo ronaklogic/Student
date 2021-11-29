@@ -1,0 +1,18 @@
+<h1>Taluka</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <th scope="col">Name</th> 
+    <th scope="col">State</th>
+    <th scope="col">District</th> 
+    <th scope="col">Action</th>
+  </thead>
+  <tbody id="taluka">
+    <% @talukas.each do |taluka| %>
+      <%= render partial: 'row', locals: {taluka: taluka} %>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "Create New Record ", new_taluka_path, remote: true, class: "btn btn-outline-success" %>
+<li><%= link_to "Next page", states_path(page: @page + 1) %></li>
+<li><%= link_to "Previous page", states_path(page: @page - 1) %></li>
+<div id="taluka_form"></div>
